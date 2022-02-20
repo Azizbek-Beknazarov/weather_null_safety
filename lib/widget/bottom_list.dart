@@ -15,14 +15,21 @@ class Bottomlist extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text('7 kunlik ob-havo'),
+        Text('7 kunlik ob-havo',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 33,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold
+          ),
+        ),
         Container(height: 140,
         padding: EdgeInsets.symmetric(vertical: 16,horizontal: 16),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
             itemBuilder: (context, index){
               return Container(
-                width: MediaQuery.of(context).size.width/2.7,
+                width: MediaQuery.of(context).size.width/2.3,
                 height: 160,
                 child: WeatherCard(snapshot, index),
               );

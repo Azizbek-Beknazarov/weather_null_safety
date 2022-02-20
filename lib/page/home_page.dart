@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Row(children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: CityWidget(snapshot: snapshot),
                         ),
                         SizedBox(
@@ -100,15 +100,7 @@ class _HomePageState extends State<HomePage> {
                       ],),
                       Image.network(icon!, scale: 0.4, ),
                       SizedBox(
-                        height: 10,
-                      ),
-
-                      SizedBox(
-                        height: 30,
-                      ),
-
-                      SizedBox(
-                        height: 30,
+                        height: 50,
                       ),
                       DetailWidget(snapshot: snapshot,),
                       SizedBox(

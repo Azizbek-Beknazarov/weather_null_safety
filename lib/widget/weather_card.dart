@@ -15,6 +15,8 @@ class WeatherCard extends StatelessWidget {
     DateTime time=DateTime.fromMillisecondsSinceEpoch(list![index].dt*1000);
     dayOfWeek=DateFormat('MMMM d').format(time);
     var tempMin=list[index].temp.min;
+    var tempMax=list[index].temp.max;
+     var tempNight=list[index].temp.night;
     var icon=list[index].getIconUrl();
     return Container(
       margin: EdgeInsets.only(left: 2),
@@ -27,13 +29,28 @@ class WeatherCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(dayOfWeek),
+          Center(child: Text(dayOfWeek, style: TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 15,
+              fontWeight: FontWeight.bold
+          ),)),
           Row(
             children: [
-              Text('$tempMin'),
-              Image.network(icon),
+              Container(
+                child: Column(
+                  children: [
+                    Text('min: ${tempMin.round()}°C', style: TextStyle(fontWeight: FontWeight.bold),),
+                    Text('max: ${tempMax.round()}°C',style: TextStyle(fontWeight: FontWeight.bold),),
+                    Text('night: ${tempNight.round()}°C',style: TextStyle(fontWeight: FontWeight.bold),),
+                    // Image.network(icon),
+                  ],
+                ),
+              ),
+              SizedBox(width: 20,),
+              Container(child: Image.network(icon)),
             ],
           ),
+
         ],
       ),
     );
